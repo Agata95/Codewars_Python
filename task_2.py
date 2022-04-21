@@ -9,8 +9,9 @@ def square_digits(num):
     number = ""
     num = str(num)
     for i in num:
-       number += str(int(i)**2)
+        number += str(int(i) ** 2)
     return int(number)
+
 
 print(square_digits(9119))
 print(square_digits(0))
