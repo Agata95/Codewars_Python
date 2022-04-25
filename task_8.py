@@ -20,22 +20,30 @@ def solution(roman):
                  {'rom': 'M', 'int': 1000}]
     result = 0
     tab = []
+    new_tab = []
     for i in range(0, len(roman)):
         tab.append(roman[i])
         for t in translate:
             if tab[i] == t['rom']:
                 tab[i] = t['int']
-    for i in range(0, len(tab)-1):
-        if i < len(tab):
-            if tab[i] > tab[i + 1]:
-                print(i)
-                print(tab[i])
+    for i in range(0, len(tab)):
+        print(i)
+        if i < len(tab) - 1:
+            if tab[i] >= tab[i + 1]:
+                new_tab.append(tab[i])
+            else:
+                new_tab.append(tab[i + 1] - tab[i])
+        #         ToDo: i += 1 - ale to nie działa
+        else:
+            if tab[i - 1] >= tab[i]:
+                new_tab.append(tab[i])
+        print(new_tab)
     return result
 
 
 print(solution('XXI'))
 # print(solution('I'))
-# print(solution('IV'))
+print(solution('IV'))
 # print(solution('MMVIII'))
 # print(solution('MDCLXVI'))
-# print(solution('MCMXC'))
+print(solution('MCMXC'))
