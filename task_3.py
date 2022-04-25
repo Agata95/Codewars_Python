@@ -13,8 +13,12 @@
 
 def high_and_low(numbers):
     tab = numbers.split(" ")
-    return numbers
+    tab = list(map(int, tab))
+    return str(max(tab)) + " " + str(min(tab))
 
 
 print(high_and_low("8 3 -5 42 -1 0 0 -9 4 7 4 -4"))
 print(high_and_low("1 2 3"))
+print(high_and_low("1 2 3 4 5"))
+print(high_and_low("1 2 -3 4 5"))
+print(high_and_low("1 9 3 4 -5"))

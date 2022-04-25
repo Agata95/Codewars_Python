@@ -12,7 +12,8 @@ def solution(s):
     tab = []
     for i in range(0, len(s), 2):
         tab.append(s[i:i + 2])
-    return(tab)
+    return tab
+
 
 print(solution("asdfadsf"))
 print(solution("asdfads"))
