@@ -34,11 +34,26 @@ def code(strng):
 
 
 def decode(strng):
-    return 0
+    print(strng)
+    strng = str(strng)
+    text = []
+    index = 0
+    while len(strng) > 0:
+        if not strng.startswith('0'):
+            text.append(strng[index:index + 2])
+            strng = strng[index + 2:]
+        elif strng.startswith('01'):
+            text.append(strng[index:index + 4])
+            strng = strng[index + 4:]
+        elif strng.startswith('001'):
+            text.append(strng[index:index + 6])
+            strng = strng[index + 6:]
+        elif strng.startswith('0001'):
+            text.append(strng[index:index + 8])
+            strng = strng[index + 8:]
+
+    return ''.join([decoder_dz[str(el)] for el in text])
 
 
-# print(code(10111213))
-print(decode(10111213))
-
-
-
+# print(code('55337700'))
+print(decode('001100001100001100001110001110001110011101110111001110001110001110001111001111001111001100001100001100'))
