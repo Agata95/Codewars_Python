@@ -18,7 +18,6 @@ def solution(roman):
                  {'rom': 'C', 'int': 100},
                  {'rom': 'D', 'int': 500},
                  {'rom': 'M', 'int': 1000}]
-    result = 0
     tab = []
     new_tab = []
     for i in range(0, len(roman)):
@@ -26,24 +25,27 @@ def solution(roman):
         for t in translate:
             if tab[i] == t['rom']:
                 tab[i] = t['int']
-    for i in range(0, len(tab)):
-        print(i)
+
+    i = 0
+
+    while i <= len(tab) - 1:
         if i < len(tab) - 1:
-            if tab[i] >= tab[i + 1]:
-                new_tab.append(tab[i])
-            else:
+            if tab[i + 1] > tab[i]:
                 new_tab.append(tab[i + 1] - tab[i])
-        #         ToDo: i += 1 - ale to nie działa
-        else:
-            if tab[i - 1] >= tab[i]:
+                i += 2
+            else:
                 new_tab.append(tab[i])
-        print(new_tab)
-    return result
+                i += 1
+        else:
+            new_tab.append(tab[i])
+            i += 1
+
+    return sum(new_tab)
 
 
 print(solution('XXI'))
-# print(solution('I'))
+print(solution('I'))
 print(solution('IV'))
-# print(solution('MMVIII'))
-# print(solution('MDCLXVI'))
+print(solution('MMVIII'))
+print(solution('MDCLXVI'))
 print(solution('MCMXC'))
