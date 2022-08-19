@@ -189,3 +189,16 @@ new_list[0][0] = 'c'
 
 print("Id old list: ", id(old_list), " ", old_list)
 print("Id new list: ", id(new_list), " ", new_list)
+print("----------------------------------------------------------------")
+
+# 13. Array - biblioteka numpy
+import numpy as np
+
+a = np.array([1, 2, 5, 6])
+b = np.array([0, 5, 6, 7])
+c = np.array([[1, 2, 3], [4, 5, 6]])
+
+print(a+b)
+print(a**2)
+print(c)
+print(c.T)
